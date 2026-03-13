@@ -1,9 +1,9 @@
-
-
 from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
@@ -17,15 +17,15 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
-    'django.contrib.admin',       
+    'django.contrib.admin',      
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework',             
-    'cars',                       
+    'rest_framework',
+    'cars',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -100,7 +100,3 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-INSTALLED_APPS = [
-    
-    'rest_framework',
-]
