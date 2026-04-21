@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Category, Car
+from .models import Category, Car, Favorite
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -14,7 +14,9 @@ class CarSerializer(serializers.ModelSerializer):
     category_id = serializers.PrimaryKeyRelatedField(
         queryset=Category.objects.all(),
         source='category',
-        write_only=True
+        write_only=True,
+        required=False,
+        allow_null=True,
     )
 
     class Meta:
@@ -26,8 +28,9 @@ class CarSerializer(serializers.ModelSerializer):
             'description',
             'price',
             'is_available',
+            'image',
             'category',
-            'category_id'
+            'category_id',
         ]
 
 
@@ -45,3 +48,10 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
+
+
+class FavoriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorite
+        fields = ['id', 'user', 'car']
+        read_only_fields = ['user']
