@@ -1,0 +1,555 @@
+:root {
+    --ink: #101820;
+    --muted: #5d6d7d;
+    --line: #d7dee6;
+    --paper: #ffffff;
+    --soft: #f3f6f9;
+    --blue: #006cb8;
+    --blue-dark: #003f7d;
+    --gold: #f2b705;
+    --forest: #1f5c4f;
+    --shadow: 0 18px 45px rgba(16, 24, 32, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(16px);
+}
+
+.utility-bar {
+    color: #dbe8f5;
+    background: #10243d;
+    font-size: 0.78rem;
+}
+
+.utility-inner,
+.header-inner,
+.footer-grid,
+.retailer-inner,
+.split-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.utility-inner {
+    min-height: 34px;
+}
+
+.utility-inner nav,
+.site-nav,
+.footer-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.header-inner {
+    min-height: 74px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-width: max-content;
+}
+
+.brand-emblem {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    color: #fff;
+    background: var(--blue);
+    border-radius: 50%;
+    font-weight: 900;
+}
+
+.brand-mark,
+.brand-subtitle {
+    display: block;
+}
+
+.brand-mark {
+    color: var(--blue-dark);
+    font-weight: 900;
+    letter-spacing: 0.16em;
+}
+
+.brand-subtitle {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.site-nav a,
+.header-cta,
+.text-link {
+    font-weight: 800;
+}
+
+.site-nav a {
+    color: #26384b;
+}
+
+.header-cta {
+    color: #fff;
+    background: var(--blue);
+    padding: 12px 18px;
+    border-radius: 4px;
+}
+
+.hero-home {
+    min-height: 660px;
+    background-image:
+        linear-gradient(90deg, rgba(8, 18, 30, 0.86) 0%, rgba(8, 18, 30, 0.58) 42%, rgba(8, 18, 30, 0.1) 100%),
+        url("../img/2026-outback-wilderness-hero.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-shade {
+    min-height: inherit;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    color: #fff;
+    padding: 80px 0 108px;
+}
+
+.hero-content h1,
+.catalog-hero h1 {
+    margin: 0 0 20px;
+    max-width: 780px;
+    font-size: clamp(3rem, 8vw, 6.6rem);
+    line-height: 0.95;
+    letter-spacing: 0;
+}
+
+.hero-content p,
+.catalog-hero p {
+    max-width: 620px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 1.18rem;
+    line-height: 1.65;
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.eyebrow-light {
+    color: var(--gold);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 4px;
+    font-weight: 900;
+}
+
+.button-primary {
+    color: #fff;
+    background: var(--blue);
+}
+
+.button-secondary {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.quick-tools {
+    background: #10243d;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.tool-link {
+    min-height: 118px;
+    padding: 24px;
+    color: #fff;
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.tool-link:last-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.tool-link span,
+.tool-link small {
+    display: block;
+}
+
+.tool-link span {
+    margin-bottom: 8px;
+    font-size: 1.12rem;
+    font-weight: 900;
+}
+
+.tool-link small {
+    color: rgba(255, 255, 255, 0.74);
+    line-height: 1.5;
+}
+
+.vehicle-groups,
+.model-showcase,
+.catalog {
+    padding: 72px 0;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.section-heading h2,
+.brand-story h2,
+.retailer-band h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.04;
+}
+
+.text-link {
+    color: var(--blue);
+    min-width: max-content;
+}
+
+.group-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border: 1px solid var(--line);
+}
+
+.group-tab {
+    padding: 26px;
+    background: #fff;
+    border-right: 1px solid var(--line);
+}
+
+.group-tab:last-child {
+    border-right: 0;
+}
+
+.group-tab h3,
+.model-card h3,
+.story-list h3,
+.inventory-card h2,
+.empty-state h2 {
+    margin: 0 0 10px;
+}
+
+.group-tab p,
+.model-card p,
+.story-copy p,
+.story-list p,
+.inventory-card p,
+.empty-state p,
+.site-footer p {
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+.model-showcase {
+    background: var(--soft);
+}
+
+.model-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.model-card,
+.inventory-card,
+.empty-state {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(16, 24, 32, 0.08);
+}
+
+.model-media {
+    position: relative;
+}
+
+.model-card img,
+.inventory-media img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #e8eef4;
+}
+
+.image-credit {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    max-width: calc(100% - 20px);
+    color: #fff;
+    background: rgba(8, 18, 30, 0.72);
+    border-radius: 4px;
+    padding: 5px 7px;
+    font-size: 0.68rem;
+    line-height: 1.2;
+}
+
+.model-card-body,
+.inventory-body,
+.empty-state {
+    padding: 26px;
+}
+
+.model-type {
+    margin: 0 0 8px;
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.model-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.model-highlights li {
+    color: #17324d;
+    background: #eaf1f8;
+    border-radius: 999px;
+    padding: 7px 10px;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.brand-story {
+    padding: 78px 0;
+    color: #fff;
+    background:
+        linear-gradient(135deg, rgba(16, 36, 61, 0.94), rgba(31, 92, 79, 0.92)),
+        url("../img/subaru-family-hero.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 42px;
+    align-items: start;
+}
+
+.story-copy p,
+.story-list p {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.story-list {
+    display: grid;
+    gap: 16px;
+}
+
+.story-list article {
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+
+.retailer-band {
+    padding: 42px 0;
+    background: #f8fafc;
+    border-bottom: 1px solid var(--line);
+}
+
+.catalog-hero {
+    color: #fff;
+    background:
+        linear-gradient(90deg, rgba(8, 18, 30, 0.88), rgba(8, 18, 30, 0.34)),
+        url("../img/subaru-family-hero.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.catalog-hero-inner {
+    padding: 92px 0;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.spec-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 24px 0 0;
+}
+
+.spec-list div {
+    padding: 12px;
+    background: var(--soft);
+    border-radius: 6px;
+}
+
+.spec-list dt {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.spec-list dd {
+    margin: 5px 0 0;
+    font-weight: 900;
+}
+
+.empty-state {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.site-footer {
+    padding: 42px 0;
+    color: #d8e3ee;
+    background: #0b1725;
+}
+
+.footer-grid {
+    align-items: flex-start;
+}
+
+.footer-brand .brand-mark,
+.footer-brand .brand-subtitle {
+    color: #fff;
+}
+
+.footer-links a {
+    color: #d8e3ee;
+    font-weight: 800;
+}
+
+@media (max-width: 960px) {
+    .header-inner,
+    .utility-inner,
+    .footer-grid,
+    .retailer-inner,
+    .split-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tools-grid,
+    .group-tabs,
+    .model-grid,
+    .inventory-grid,
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .group-tab,
+    .tool-link,
+    .tool-link:last-child {
+        border-right: 0;
+        border-left: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .hero-home {
+        min-height: 580px;
+    }
+}
+
+@media (max-width: 620px) {
+    .site-nav,
+    .utility-inner nav {
+        gap: 12px;
+    }
+
+    .hero-content,
+    .catalog-hero-inner {
+        padding: 60px 0 76px;
+    }
+
+    .vehicle-groups,
+    .model-showcase,
+    .catalog,
+    .brand-story {
+        padding: 48px 0;
+    }
+
+    .spec-list {
+        grid-template-columns: 1fr;
+    }
+
+    .button,
+    .header-cta {
+        width: 100%;
+    }
+}

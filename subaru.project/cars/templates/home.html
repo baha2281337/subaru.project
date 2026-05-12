@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Subaru Style Demo{% endblock %}
+
+{% block content %}
+<section class="hero-home">
+    <div class="hero-shade">
+        <div class="container hero-content">
+            <p class="eyebrow eyebrow-light">All-wheel confidence</p>
+            <h1>Subaru Family</h1>
+            <p>
+                Crossovers, SUVs, and performance cars designed around traction, visibility,
+                everyday comfort, and the freedom to keep moving when the road changes.
+            </p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="{% url 'cars_page' %}">Explore Models</a>
+                <a class="button button-secondary" href="{% url 'cars_page' %}">Compare Lineup</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="quick-tools" aria-label="Shopping tools">
+    <div class="container tools-grid">
+        {% for tool in shopping_tools %}
+        <a class="tool-link" href="{% url 'cars_page' %}">
+            <span>{{ tool.title }}</span>
+            <small>{{ tool.text }}</small>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="vehicle-groups">
+    <div class="container">
+        <div class="section-heading split-heading">
+            <div>
+                <p class="eyebrow">Choose your drive</p>
+                <h2>Hybrid, electric, gas, and trail-focused options</h2>
+            </div>
+            <a class="text-link" href="{% url 'cars_page' %}">View all models</a>
+        </div>
+        <div class="group-tabs">
+            {% for group in vehicle_groups %}
+            <article class="group-tab">
+                <h3>{{ group.name }}</h3>
+                <p>{{ group.text }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="model-showcase">
+    <div class="container">
+        <div class="section-heading">
+            <p class="eyebrow">Featured vehicles</p>
+            <h2>Shop by model</h2>
+        </div>
+        <div class="model-grid">
+            {% for model in featured_models %}
+            <article class="model-card">
+                <div class="model-media">
+                    <img src="{% static model.image %}" alt="{{ model.name }}">
+                    <a class="image-credit" href="{{ model.image_source }}" target="_blank" rel="noopener">
+                        Photo: {{ model.image_credit }}
+                    </a>
+                </div>
+                <div class="model-card-body">
+                    <p class="model-type">{{ model.type }}</p>
+                    <h3>{{ model.name }}</h3>
+                    <p>{{ model.tagline }}</p>
+                    <ul class="model-highlights">
+                        {% for item in model.highlights %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="brand-story">
+    <div class="container story-grid">
+        <div class="story-copy">
+            <p class="eyebrow eyebrow-light">Built around confidence</p>
+            <h2>Safety, utility, and adventure in one shopping path</h2>
+            <p>
+                Compare vehicles by the things that matter on real roads: control in bad weather,
+                practical cargo space, driver assistance, and the right size for your plans.
+            </p>
+        </div>
+        <div class="story-list">
+            {% for point in brand_points %}
+            <article>
+                <h3>{{ point.title }}</h3>
+                <p>{{ point.text }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="retailer-band">
+    <div class="container retailer-inner">
+        <div>
+            <p class="eyebrow">Inventory demo</p>
+            <h2>Browse available models and details</h2>
+        </div>
+        <a class="button button-primary" href="{% url 'cars_page' %}">Open Model Catalog</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Subaru Models{% endblock %}
+
+{% block content %}
+<section class="catalog-hero">
+    <div class="container catalog-hero-inner">
+        <p class="eyebrow eyebrow-light">Model catalog</p>
+        <h1>Find the right Subaru for the road ahead</h1>
+        <p>Compare available vehicles by category, year, price, and status.</p>
+    </div>
+</section>
+
+<section class="catalog">
+    <div class="container">
+        {% if cars %}
+        <div class="inventory-grid">
+            {% for car in cars %}
+            <article class="inventory-card">
+                <div class="inventory-media">
+                    {% if car.image %}
+                    <img src="{{ car.image.url }}" alt="{{ car.name }}">
+                    {% else %}
+                    <img src="{% static 'img/2026-outback.jpg' %}" alt="{{ car.name }}">
+                    {% endif %}
+                </div>
+                <div class="inventory-body">
+                    <p class="model-type">
+                        {% if car.category %}{{ car.category.name }}{% else %}Subaru model{% endif %}
+                    </p>
+                    <h2>{{ car.name }}</h2>
+                    <p>{{ car.description|default:"A Subaru model ready for catalog details." }}</p>
+                    <dl class="spec-list">
+                        <div>
+                            <dt>Year</dt>
+                            <dd>{{ car.year }}</dd>
+                        </div>
+                        <div>
+                            <dt>Price</dt>
+                            <dd>${{ car.price }}</dd>
+                        </div>
+                        <div>
+                            <dt>Status</dt>
+                            <dd>{% if car.is_available %}Available{% else %}Unavailable{% endif %}</dd>
+                        </div>
+                    </dl>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <p class="eyebrow">Inventory</p>
+            <h2>No vehicles added yet</h2>
+            <p>The catalog is ready for vehicle entries.</p>
+            <a class="button button-primary" href="{% url 'home' %}">Back to Vehicles</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
